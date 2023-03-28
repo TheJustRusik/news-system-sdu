@@ -1,0 +1,72 @@
+* {
+    -fx-primary-color: #01B075;
+    -fx-accent-color: #F64D38;
+    -fx-secondary-color: #83FF12;
+
+    -fx-focus-color: -fx-primary-color;
+    -fx-darkest-grey-color: #323232;
+}
+
+.fields{
+    -fx-accent: -fx-primary-color;
+    -fx-background-color: -fx-accent-color, #202125;
+    -fx-background-insets: 0, 2 0 2 0;
+    -fx-background-radius: 0;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+    -fx-font-scale: 5;
+}
+.fields:focused{
+    -fx-background-color: -fx-accent-color, #16171B;
+}
+
+.buttons{
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-background-color: -fx-primary-color;
+    -fx-font-weight: bold;
+}
+.check-box .box {
+    -fx-background-color: #16171B;
+    -fx-border-color: #16171B;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+.check-box .mark {
+    -fx-shape: "M1.73,12.91 8.1,19.28 22.79,4.59 22.79,1.59 8.1,16.28 1.73,9.91";
+}
+.check-box:selected .mark {
+    -fx-background-color: #16171B;
+
+}
+.check-box:selected .box {
+    -fx-background-color: #F64D38;
+}
+.radio-button .radio {
+    -fx-border-width: 1px;
+    -fx-border-color: -fx-darkest-grey-color;
+    -fx-background-color: white;
+    -fx-background-image: null;
+    -fx-border-radius: 15px;
+    -fx-padding: 3px;
+}
+.radio-button .radio:selected {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:armed {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:determinate {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:indeterminate {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button .dot {
+    -fx-background-radius: 15px;
+    -fx-padding: 8px;
+}

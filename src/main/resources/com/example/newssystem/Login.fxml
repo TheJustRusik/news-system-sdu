@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane fx:id="rootGPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="831.0" style="-fx-background-color: #16171B;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newssystem.LoginController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="197.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="554.0" minWidth="0.0" prefWidth="440.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="554.0" minWidth="0.0" prefWidth="194.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="138.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="398.0" minHeight="10.0" prefHeight="388.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="186.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox alignment="CENTER" prefHeight="285.0" prefWidth="277.0" spacing="5.0" style="-fx-background-color: #202125; -fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tech-News">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="50.0" />
+               </font>
+            </Text>
+            <TextField fx:id="loginField" alignment="CENTER" prefHeight="44.0" prefWidth="247.0" promptText="Login" styleClass="fields">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="passwordField" alignment="CENTER" prefHeight="44.0" prefWidth="247.0" promptText="Password" styleClass="fields">
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </PasswordField>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+               <children>
+                  <CheckBox fx:id="rememberMe" mnemonicParsing="false" text="Remember Me" textFill="#01b075" />
+                  <Button fx:id="joinButton" mnemonicParsing="false" onAction="#onJoinClick" onMouseEntered="#mouseEnteredToForgotPass" onMouseExited="#mouseExitedFromForgotPass" prefHeight="44.0" prefWidth="145.0" style="-fx-font-size: 22;" styleClass="buttons" text="Join!" textFill="WHITE">
+                     <effect>
+                        <Reflection fraction="0.59" topOpacity="0.12" />
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="31.0" prefWidth="90.0" style="-fx-font-size: 15;" styleClass="buttons" text="Register" textFill="WHITE">
+               <effect>
+                  <Reflection fraction="0.59" topOpacity="0.1" />
+               </effect>
+            </Button>
+            <Text fx:id="forgotPass" fill="WHITE" fontSmoothingType="LCD" onMouseEntered="#mouseEnteredToForgotPass" onMouseExited="#mouseExitedFromForgotPass" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+   </children>
+</GridPane>
