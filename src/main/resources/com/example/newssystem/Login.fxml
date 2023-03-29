@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="rootGPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="831.0" style="-fx-background-color: #16171B;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newssystem.LoginController">
+<GridPane fx:id="rootGPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="831.0" style="-fx-background-color: #16171B;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newssystem.LoginController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="197.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="554.0" minWidth="0.0" prefWidth="440.0" />
@@ -49,7 +49,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
                   <CheckBox fx:id="rememberMe" mnemonicParsing="false" text="Remember Me" textFill="#01b075" />
-                  <Button fx:id="joinButton" mnemonicParsing="false" onAction="#onJoinClick" onMouseEntered="#mouseEnteredToForgotPass" onMouseExited="#mouseExitedFromForgotPass" prefHeight="44.0" prefWidth="145.0" style="-fx-font-size: 22;" styleClass="buttons" text="Join!" textFill="WHITE">
+                  <Button fx:id="joinButton" mnemonicParsing="false" onAction="#onJoinClick" prefHeight="44.0" prefWidth="145.0" style="-fx-font-size: 22;" styleClass="buttons" text="Join!" textFill="WHITE">
                      <effect>
                         <Reflection fraction="0.59" topOpacity="0.12" />
                      </effect>

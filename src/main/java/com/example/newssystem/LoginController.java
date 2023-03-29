@@ -46,8 +46,8 @@ public class LoginController {
     }
     @FXML
     protected void onRegisterClick() throws IOException {
-        GridPane ppane = FXMLLoader.load(getClass().getResource("Register.fxml"));
-        rootGPane.getChildren().setAll(ppane);
+        GridPane pane = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        rootGPane.getScene().setRoot(pane);
     }
 
 

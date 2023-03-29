@@ -40,33 +40,29 @@
 
 }
 .check-box:selected .box {
-    -fx-background-color: #F64D38;
+    -fx-background-color: -fx-primary-color;
 }
-.radio-button .radio {
-    -fx-border-width: 1px;
-    -fx-border-color: -fx-darkest-grey-color;
-    -fx-background-color: white;
-    -fx-background-image: null;
-    -fx-border-radius: 15px;
-    -fx-padding: 3px;
+.material-progress-bar .track {
+    -fx-background-color: black;
 }
-.radio-button .radio:selected {
-    -fx-background-color: white;
-    -fx-background-image: null;
+
+.material-progress-bar .bar {
+    -fx-background-color: red;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
 }
-.radio-button -radio:armed {
-    -fx-background-color: white;
-    -fx-background-image: null;
+
+.material-progress-bar .bar .bar-inner {
+    -fx-background-color: #FFFFFF;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-radius: 5px;
 }
-.radio-button -radio:determinate {
-    -fx-background-color: white;
-    -fx-background-image: null;
+
+.material-progress-bar .percentage {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
 }
-.radio-button -radio:indeterminate {
-    -fx-background-color: white;
-    -fx-background-image: null;
-}
-.radio-button .dot {
-    -fx-background-radius: 15px;
-    -fx-padding: 8px;
-}
+
+
+

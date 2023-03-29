@@ -12,7 +12,7 @@ public class RegisterController {
     GridPane rootGPane;
     @FXML
     protected void onLoginClick() throws IOException {
-        GridPane ppane = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        rootGPane.getChildren().setAll(ppane);
+        GridPane pane = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        rootGPane.getScene().setRoot(pane);
     }
 }
