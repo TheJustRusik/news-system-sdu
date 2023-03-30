@@ -51,6 +51,16 @@
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
+.middle .bar {
+    -fx-background-color: yellow;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.high .bar {
+    -fx-background-color: lime;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
 
 .material-progress-bar .bar .bar-inner {
     -fx-background-color: #FFFFFF;

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="rootGPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="831.0" style="-fx-background-color: #16171B;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newssystem.RegisterController">
+<GridPane fx:id="rootGPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="831.0" style="-fx-background-color: #16171B;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newssystem.RegisterController">
     <columnConstraints>
         <ColumnConstraints />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="197.0" />
@@ -29,12 +29,12 @@
     <children>
         <VBox alignment="CENTER" prefHeight="492.0" prefWidth="440.0" spacing="5.0" style="-fx-background-color: #202125; -fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.rowIndex="1">
             <children>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tech-News">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SDU-News">
                     <font>
                         <Font name="Microsoft YaHei Light" size="50.0" />
                     </font>
                 </Text>
-                <TextField alignment="CENTER" prefHeight="44.0" prefWidth="247.0" promptText="Login" styleClass="fields">
+                <TextField fx:id="loginField" alignment="CENTER" onKeyTyped="#checkLogin" prefHeight="44.0" prefWidth="247.0" promptText="Login" styleClass="fields">
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
@@ -42,17 +42,17 @@
                         <Insets left="15.0" right="15.0" />
                     </VBox.margin>
                 </TextField>
-            <TextField alignment="CENTER" prefHeight="44.0" prefWidth="382.0" promptText="Email" styleClass="fields">
+            <TextField fx:id="emailField" alignment="CENTER" onKeyTyped="#checkEmail" prefHeight="44.0" prefWidth="382.0" promptText="Email" styleClass="fields">
                <VBox.margin>
                   <Insets left="15.0" right="15.0" />
                </VBox.margin>
             </TextField>
-                <PasswordField alignment="CENTER" prefHeight="44.0" prefWidth="247.0" promptText="Password" styleClass="fields">
+                <PasswordField fx:id="passwordField1" alignment="CENTER" onKeyTyped="#checkPass" prefHeight="44.0" prefWidth="247.0" promptText="Password" styleClass="fields">
                     <VBox.margin>
                         <Insets left="15.0" right="15.0" />
                     </VBox.margin>
                 </PasswordField>
-            <PasswordField alignment="CENTER" prefHeight="44.0" prefWidth="347.0" promptText="Repeat password" styleClass="fields">
+            <PasswordField fx:id="passwordField2" alignment="CENTER" onKeyTyped="#checkPass" prefHeight="44.0" prefWidth="347.0" promptText="Repeat password" styleClass="fields">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -62,16 +62,17 @@
             </PasswordField>
             <HBox alignment="CENTER" prefHeight="2.0" prefWidth="440.0" spacing="5.0">
                <children>
-                  <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Password's strength:" />
-                  <ProgressBar prefHeight="6.0" prefWidth="200.0" progress="0.08" styleClass="material-progress-bar" />
-                  <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Weak" />
+                  <Text fx:id="PStext" fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Password's strength:" />
+                  <ProgressBar fx:id="PSprogressBar" prefHeight="6.0" prefWidth="200.0" progress="0.52" styleClass="material-progress-bar" />
+                  <Text fx:id="PSprogressText" fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" />
                </children>
             </HBox>
-                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="145.0" style="-fx-font-size: 22;" styleClass="buttons" text="Register!" textFill="WHITE">
+                  <Button fx:id="registerButton" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="44.0" prefWidth="145.0" style="-fx-font-size: 22;" styleClass="buttons" text="Register!" textFill="WHITE">
                       <effect>
                           <Reflection fraction="0.59" topOpacity="0.12" />
                       </effect>
                   </Button>
+            <Text fx:id="problemText" fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #F64D38;" text="Problems with login or with passwords etc" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="425.34765625" />
             </children>
             <opaqueInsets>
                 <Insets />

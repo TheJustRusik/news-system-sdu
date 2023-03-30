@@ -10,8 +10,21 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 public class LoginController {
+    static String hashPassword(String password) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        byte[] hash = md.digest(password.getBytes());
+        StringBuilder sb = new StringBuilder();
+        for (byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
+    }
+
     @FXML
     public GridPane rootGPane;
     @FXML
@@ -24,10 +37,13 @@ public class LoginController {
     private Button joinButton;
     @FXML
     private CheckBox rememberMe;
+
+
     @FXML
-    private Button registerButton;
-
-
+    protected void onRegisterClick() throws IOException {
+        GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Register.fxml")));
+        rootGPane.getScene().setRoot(pane);
+    }
     @FXML
     protected void mouseEnteredToForgotPass(){
         forgotPass.setUnderline(true);
@@ -41,14 +57,8 @@ public class LoginController {
 
     }
     @FXML
-    protected void onJoinClick(){
-
-    }
-    @FXML
-    protected void onRegisterClick() throws IOException {
-        GridPane pane = FXMLLoader.load(getClass().getResource("Register.fxml"));
+    protected void onJoinClick() throws IOException {
+        GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("test.fxml")));
         rootGPane.getScene().setRoot(pane);
     }
-
-
 }
