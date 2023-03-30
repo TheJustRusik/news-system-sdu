@@ -14,7 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
-public class LoginController {
+public class LoginController extends LogRegWorker {
     static String hashPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte[] hash = md.digest(password.getBytes());
@@ -58,7 +58,7 @@ public class LoginController {
     }
     @FXML
     protected void onJoinClick() throws IOException {
-        GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("test.fxml")));
+        GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Application.fxml")));
         rootGPane.getScene().setRoot(pane);
     }
 }

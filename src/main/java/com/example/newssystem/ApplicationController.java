@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class ApplicationController {
+    @FXML private GridPane rootroot;
     @FXML private HBox root;
     @FXML private GridPane pane;
     @FXML private Button tech;
@@ -56,6 +57,11 @@ public class ApplicationController {
         HBox.setMargin(pane,  new Insets(10, 0, 10, 0));
         root.getChildren().add(pane);
 
+    }
+    @FXML
+    protected void onLogoutClick() throws IOException {
+        GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        rootroot.getScene().setRoot(pane);
     }
 
 }

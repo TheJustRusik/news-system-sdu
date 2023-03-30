@@ -14,7 +14,7 @@ import java.util.Objects;
 
 import static com.example.newssystem.LoginController.hashPassword;
 
-public class RegisterController {
+public class RegisterController extends LogRegWorker{
     @FXML
     GridPane rootGPane;
     @FXML
@@ -131,7 +131,17 @@ public class RegisterController {
     }
     @FXML
     protected void onRegisterClick() throws IOException {
-        GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("test.fxml")));
+        if(!checkLogin()){
+            return;
+        }else if(!checkEmail()){
+            return;
+        }else if(!checkPass()){
+            return;
+        }
+
+        createFolder();
+
+        GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Application.fxml")));
         rootGPane.getScene().setRoot(pane);
     }
 
