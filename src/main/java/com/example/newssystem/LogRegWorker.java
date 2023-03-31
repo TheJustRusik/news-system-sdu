@@ -14,7 +14,7 @@ public class LogRegWorker {
             System.out.println("Folder already exist...\n");
         }
 
-        File file = new File("file.txt");
+        File file = new File(".files/file.txt");
         try {
             if (file.createNewFile()) {
                 System.out.println("File created successfully.");
@@ -27,13 +27,51 @@ public class LogRegWorker {
         }
     }
 
-    public void checkData() throws FileNotFoundException {
-        try {
-            RandomAccessFile raf = new RandomAccessFile(".files/file.txt", "r");
-        } catch (FileNotFoundException e){
-
-        } catch (IOException e){
-
+    public boolean checkData(String data, char dataType) throws IOException {
+        RandomAccessFile file = new RandomAccessFile(".files/file.txt", "r");
+        file.seek(0);
+        String line;
+        while ((line = file.readLine()) != null){
+            if(dataType == 'l' && line.startsWith("login: ")){
+                if(("login: " + data).equals(line))
+                    return true;
+            }else if(dataType == 'p' && line.startsWith("password: ")){
+                if(("password: " + data).equals(line))
+                    return true;
+            }else if(dataType == 'e' && line.startsWith("email: ")){
+                if(("email: " + data).equals(line))
+                    return true;
+            }
         }
+
+
+        return false;
+    }
+
+    public boolean checkPassword(String login, String password) throws IOException {
+        RandomAccessFile file = new RandomAccessFile(".files/file.txt", "r");
+        file.seek(0);
+        String buff;
+        while ((buff = file.readLine()) != null){
+            if(buff.equals("login: " + login)){
+                buff = file.readLine();
+                if(buff.equals("password: " + password)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+
+        return false;
+    }
+    public void addData(String login, String email, String password) throws IOException {
+        RandomAccessFile file = new RandomAccessFile(".files/file.txt", "rw");
+        file.seek(file.length());
+        file.writeBytes("login: " + login + "\n");
+        file.writeBytes("password: " + password + "\n");
+        file.writeBytes("email: " + email + "\n");
+        file.writeBytes("\n");
+
     }
 }

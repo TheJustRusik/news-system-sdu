@@ -140,6 +140,18 @@ public class RegisterController extends LogRegWorker{
         }
 
         createFolder();
+        if(checkData(loginField.getText(), 'l')){
+            problemText.setVisible(true);
+            problemText.setText("Login are already taken, try another");
+            return;
+        }
+        if(checkData(emailField.getText(), 'e')){
+            problemText.setVisible(true);
+            problemText.setText("eMail are already taken, try another");
+            return;
+        }
+        problemText.setVisible(false);
+        addData(loginField.getText(), emailField.getText(), passwordField1.getText());
 
         GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Application.fxml")));
         rootGPane.getScene().setRoot(pane);

@@ -37,7 +37,13 @@ public class LoginController extends LogRegWorker {
     private Button joinButton;
     @FXML
     private CheckBox rememberMe;
+    @FXML
+    private Text problemText;
 
+    @FXML
+    public void initialize(){
+        problemText.setVisible(false);
+    }
 
     @FXML
     protected void onRegisterClick() throws IOException {
@@ -58,6 +64,20 @@ public class LoginController extends LogRegWorker {
     }
     @FXML
     protected void onJoinClick() throws IOException {
+        createFolder();
+        if(checkData(loginField.getText(), 'l')){
+            if(! checkPassword(loginField.getText(), passwordField.getText())){
+                problemText.setVisible(true);
+                problemText.setText("Incorrect password!");
+                return;
+            }
+        }else{
+            problemText.setVisible(true);
+            problemText.setText("Incorrect login!");
+            return;
+        }
+
+
         GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Application.fxml")));
         rootGPane.getScene().setRoot(pane);
     }

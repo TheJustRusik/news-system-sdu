@@ -1,0 +1,8 @@
+login: Ruslan
+password: 12345
+email: rusik@gmail.com
+
+login: Jamal
+password: 123456789
+email: jamal@mail.com
+
