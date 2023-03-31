@@ -8,6 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -60,6 +61,11 @@ public class ApplicationController {
     }
     @FXML
     protected void onLogoutClick() throws IOException {
+        File file = new File(".files/rmmbr.me");
+        if(file.exists())
+            file.delete();
+
+
         GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         rootroot.getScene().setRoot(pane);
     }

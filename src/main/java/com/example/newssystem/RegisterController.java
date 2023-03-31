@@ -60,11 +60,7 @@ public class RegisterController extends LogRegWorker{
             problemText.setText("Login can't be more than 16 characters");
             return false;
         }
-        if(loginExist(loginField.getText())){
-            problemText.setVisible(true);
-            problemText.setText("Login are taken");
-            return false;
-        }
+
         problemText.setVisible(false);
         return true;
     }
@@ -74,11 +70,6 @@ public class RegisterController extends LogRegWorker{
         if(!(email.contains("@") && (email.contains(".")))){
             problemText.setVisible(true);
             problemText.setText("Incorrect eMail");
-            return false;
-        }
-        if(emailExist(emailField.getText())){
-            problemText.setVisible(true);
-            problemText.setText("eMail are taken");
             return false;
         }
         problemText.setVisible(false);
@@ -122,12 +113,6 @@ public class RegisterController extends LogRegWorker{
 
         problemText.setVisible(false);
         return true;
-    }
-    private boolean loginExist(String text) {
-        return false;//TODO
-    }
-    private boolean emailExist(String text) {
-        return false;//TODO
     }
     @FXML
     protected void onRegisterClick() throws IOException {

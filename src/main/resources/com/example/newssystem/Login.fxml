@@ -69,7 +69,7 @@
                   <Reflection fraction="0.59" topOpacity="0.1" />
                </effect>
             </Button>
-            <Text fx:id="forgotPass" fill="WHITE" fontSmoothingType="LCD" onMouseEntered="#mouseEnteredToForgotPass" onMouseExited="#mouseExitedFromForgotPass" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?">
+            <Text fx:id="forgotPass" fill="WHITE" fontSmoothingType="LCD" onMouseEntered="#mouseEnteredToForgotPass" onMouseExited="#mouseExitedFromForgotPass" onMouseReleased="#onForgotPassClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?">
                <font>
                   <Font size="15.0" />
                </font>

@@ -9,7 +9,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
@@ -41,7 +43,7 @@ public class LoginController extends LogRegWorker {
     private Text problemText;
 
     @FXML
-    public void initialize(){
+    public void initialize() throws IOException {
         problemText.setVisible(false);
     }
 
@@ -59,8 +61,23 @@ public class LoginController extends LogRegWorker {
         forgotPass.setUnderline(false);
     }
     @FXML
-    protected void onForgotPassClick(){
+    protected void onForgotPassClick() throws IOException {
+        if(checkData(loginField.getText(), 'l')){
+            RandomAccessFile file = new RandomAccessFile(".files/file.txt", "r");
+            file.seek(0);
+            String buff;
+            while ((buff = file.readLine()) != null){
+                if(buff.equals("login: " + loginField.getText())){
+                    buff = file.readLine();
+                    System.out.println(buff);
+                }
+            }
 
+            problemText.setVisible(false);
+        }else{
+            problemText.setVisible(true);
+            problemText.setText("Incorrect login!");
+        }
     }
     @FXML
     protected void onJoinClick() throws IOException {
@@ -77,6 +94,10 @@ public class LoginController extends LogRegWorker {
             return;
         }
 
+        if(rememberMe.isSelected()){
+            File file = new File(".files/rmmbr.me");
+            file.createNewFile();
+        }
 
         GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Application.fxml")));
         rootGPane.getScene().setRoot(pane);

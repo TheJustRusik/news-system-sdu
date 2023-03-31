@@ -1,7 +1,6 @@
 package com.example.newssystem;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -55,11 +54,7 @@ public class LogRegWorker {
         while ((buff = file.readLine()) != null){
             if(buff.equals("login: " + login)){
                 buff = file.readLine();
-                if(buff.equals("password: " + password)){
-                    return true;
-                }else{
-                    return false;
-                }
+                return buff.equals("password: " + password);
             }
         }
 
