@@ -14,9 +14,9 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         File file = new File(".files/rmmbr.me");
         FXMLLoader fxmlLoader;
-        if(file.exists()){
+        if (file.exists()) {
             fxmlLoader = new FXMLLoader(getClass().getResource("Application.fxml"));
-        }else {
+        } else {
             fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
         }
         Scene scene = new Scene(fxmlLoader.load(), 900, 700);

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="rootroot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="891.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.newssystem.ApplicationController">
+<GridPane fx:id="rootroot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="891.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newssystem.ApplicationController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -34,6 +34,7 @@
                   <Button fx:id="tech" mnemonicParsing="false" onAction="#onTechClick" prefHeight="44.0" prefWidth="130.0" style="-fx-font-size: 20;" styleClass="buttons" stylesheets="@styles.css" text="Tech" textFill="WHITE" />
                   <Button fx:id="sport" mnemonicParsing="false" onAction="#onSportClick" prefHeight="44.0" prefWidth="130.0" style="-fx-font-size: 20; -fx-background-color: #16171B;" styleClass="buttons" stylesheets="@styles.css" text="Sport" textFill="WHITE" />
                   <Button fx:id="economy" mnemonicParsing="false" onAction="#onEconmyClick" prefHeight="44.0" prefWidth="130.0" style="-fx-font-size: 20; -fx-background-color: #16171B;" styleClass="buttons" stylesheets="@styles.css" text="Economy" textFill="WHITE" />
+                  <Button fx:id="business" mnemonicParsing="false" onAction="#onBusinessClick" prefHeight="44.0" prefWidth="130.0" style="-fx-font-size: 20; -fx-background-color: #16171B;" styleClass="buttons" stylesheets="@styles.css" text="Business" textFill="WHITE" />
                   <Button fx:id="logout" mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="44.0" prefWidth="130.0" style="-fx-font-size: 20; -fx-background-color: #F64D38;" styleClass="buttons" stylesheets="@styles.css" text="Logout" textFill="WHITE">
                      <VBox.margin>
                         <Insets top="100.0" />

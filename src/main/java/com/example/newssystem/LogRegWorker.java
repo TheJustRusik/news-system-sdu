@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public class LogRegWorker {
-    public void createFolder(){
+    public void createFolder() {
         File folder = new File(".files");
-        if(folder.mkdir()){
+        if (folder.mkdir()) {
             System.out.println("Folder created!\n");
-        }else{
+        } else {
             System.out.println("Folder already exist...\n");
         }
 
@@ -30,15 +30,15 @@ public class LogRegWorker {
         RandomAccessFile file = new RandomAccessFile(".files/file.txt", "r");
         file.seek(0);
         String line;
-        while ((line = file.readLine()) != null){
-            if(dataType == 'l' && line.startsWith("login: ")){
-                if(("login: " + data).equals(line))
+        while ((line = file.readLine()) != null) {
+            if (dataType == 'l' && line.startsWith("login: ")) {
+                if (("login: " + data).equals(line))
                     return true;
-            }else if(dataType == 'p' && line.startsWith("password: ")){
-                if(("password: " + data).equals(line))
+            } else if (dataType == 'p' && line.startsWith("password: ")) {
+                if (("password: " + data).equals(line))
                     return true;
-            }else if(dataType == 'e' && line.startsWith("email: ")){
-                if(("email: " + data).equals(line))
+            } else if (dataType == 'e' && line.startsWith("email: ")) {
+                if (("email: " + data).equals(line))
                     return true;
             }
         }
@@ -51,8 +51,8 @@ public class LogRegWorker {
         RandomAccessFile file = new RandomAccessFile(".files/file.txt", "r");
         file.seek(0);
         String buff;
-        while ((buff = file.readLine()) != null){
-            if(buff.equals("login: " + login)){
+        while ((buff = file.readLine()) != null) {
+            if (buff.equals("login: " + login)) {
                 buff = file.readLine();
                 return buff.equals("password: " + password);
             }
@@ -60,6 +60,7 @@ public class LogRegWorker {
 
         return false;
     }
+
     public void addData(String login, String email, String password) throws IOException {
         RandomAccessFile file = new RandomAccessFile(".files/file.txt", "rw");
         file.seek(file.length());

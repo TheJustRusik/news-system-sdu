@@ -5,8 +5,3 @@ email: rusik@gmail.com
 login: Jamal
 password: 123456789
 email: jamal@mail.com
-
-login: Ruslan4
-password: 1234
-email: ruslan@gmail.com
-

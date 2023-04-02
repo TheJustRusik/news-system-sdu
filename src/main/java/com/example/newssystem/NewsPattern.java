@@ -71,5 +71,4 @@ public abstract class NewsPattern {
             desktop.browse(URI.create(url4));
         }
     }
-
 }

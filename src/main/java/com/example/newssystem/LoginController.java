@@ -52,49 +52,51 @@ public class LoginController extends LogRegWorker {
         GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Register.fxml")));
         rootGPane.getScene().setRoot(pane);
     }
+
     @FXML
-    protected void mouseEnteredToForgotPass(){
+    protected void mouseEnteredToForgotPass() {
         forgotPass.setUnderline(true);
     }
+
     @FXML
-    protected void mouseExitedFromForgotPass(){
+    protected void mouseExitedFromForgotPass() {
         forgotPass.setUnderline(false);
     }
+
     @FXML
     protected void onForgotPassClick() throws IOException {
-        if(checkData(loginField.getText(), 'l')){
-            RandomAccessFile file = new RandomAccessFile(".files/file.txt", "r");
-            file.seek(0);
-            String buff;
-            while ((buff = file.readLine()) != null){
-                if(buff.equals("login: " + loginField.getText())){
-                    buff = file.readLine();
-                    System.out.println(buff);
-                }
-            }
+        if (checkData(loginField.getText(), 'l')) {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("forgetPass.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
 
             problemText.setVisible(false);
-        }else{
+        } else {
             problemText.setVisible(true);
             problemText.setText("Incorrect login!");
         }
     }
+
     @FXML
     protected void onJoinClick() throws IOException {
         createFolder();
-        if(checkData(loginField.getText(), 'l')){
-            if(! checkPassword(loginField.getText(), passwordField.getText())){
+        if (checkData(loginField.getText(), 'l')) {
+            if (!checkPassword(loginField.getText(), passwordField.getText())) {
                 problemText.setVisible(true);
                 problemText.setText("Incorrect password!");
                 return;
             }
-        }else{
+        } else {
             problemText.setVisible(true);
             problemText.setText("Incorrect login!");
             return;
         }
 
-        if(rememberMe.isSelected()){
+        if (rememberMe.isSelected()) {
             File file = new File(".files/rmmbr.me");
             file.createNewFile();
         }

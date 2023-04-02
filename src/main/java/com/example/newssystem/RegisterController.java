@@ -14,7 +14,7 @@ import java.util.Objects;
 
 import static com.example.newssystem.LoginController.hashPassword;
 
-public class RegisterController extends LogRegWorker{
+public class RegisterController extends LogRegWorker {
     @FXML
     GridPane rootGPane;
     @FXML
@@ -36,7 +36,7 @@ public class RegisterController extends LogRegWorker{
     @FXML
     private Text problemText;
 
-    public void initialize(){
+    public void initialize() {
         PStext.setVisible(false);
         PSprogressBar.setVisible(false);
         PSprogressText.setVisible(false);
@@ -48,14 +48,15 @@ public class RegisterController extends LogRegWorker{
         GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         rootGPane.getScene().setRoot(pane);
     }
+
     @FXML
-    protected boolean checkLogin(){
-        if(loginField.getText().length() < 2){
+    protected boolean checkLogin() {
+        if (loginField.getText().length() < 2) {
             problemText.setVisible(true);
             problemText.setText("Login can't be less than 2 characters");
             return false;
         }
-        if(loginField.getText().length() > 16){
+        if (loginField.getText().length() > 16) {
             problemText.setVisible(true);
             problemText.setText("Login can't be more than 16 characters");
             return false;
@@ -64,10 +65,11 @@ public class RegisterController extends LogRegWorker{
         problemText.setVisible(false);
         return true;
     }
+
     @FXML
-    protected boolean checkEmail(){
+    protected boolean checkEmail() {
         String email = emailField.getText();
-        if(!(email.contains("@") && (email.contains(".")))){
+        if (!(email.contains("@") && (email.contains(".")))) {
             problemText.setVisible(true);
             problemText.setText("Incorrect eMail");
             return false;
@@ -75,36 +77,37 @@ public class RegisterController extends LogRegWorker{
         problemText.setVisible(false);
         return true;
     }
+
     @FXML
-    protected boolean checkPass(){
+    protected boolean checkPass() {
         PSprogressBar.setVisible(true);
         PSprogressText.setVisible(true);
         PStext.setVisible(true);
 
         double strengthVal = passwordField1.getText().length() / 16d;
         strengthVal = Math.min(strengthVal, 1d);
-        if(strengthVal > 0d && strengthVal <= 0.33d){
+        if (strengthVal > 0d && strengthVal <= 0.33d) {
             PSprogressBar.getStyleClass().removeAll("middle", "high");
             PSprogressText.setText("Weak");
-        }else if(strengthVal > 0.33d && strengthVal <= 0.66d){
+        } else if (strengthVal > 0.33d && strengthVal <= 0.66d) {
             PSprogressBar.getStyleClass().removeAll("high");
             PSprogressBar.getStyleClass().add("middle");
             PSprogressText.setText("Middle");
-        }else if(strengthVal > 0.66d && strengthVal <= 1d){
+        } else if (strengthVal > 0.66d && strengthVal <= 1d) {
             PSprogressBar.getStyleClass().removeAll("middle");
             PSprogressBar.getStyleClass().add("high");
             PSprogressText.setText("High");
         }
         PSprogressBar.setProgress(strengthVal);
 
-        if(passwordField1.getText().length() < 4){
+        if (passwordField1.getText().length() < 4) {
             problemText.setVisible(true);
             problemText.setText("Password's minimum length should be 4");
             return false;
         }
         String pass1 = passwordField1.getText();
         String pass2 = passwordField2.getText();
-        if(!pass1.equals(pass2)){
+        if (!pass1.equals(pass2)) {
             problemText.setVisible(true);
             problemText.setText("Password mismatch");
             return false;
@@ -114,23 +117,24 @@ public class RegisterController extends LogRegWorker{
         problemText.setVisible(false);
         return true;
     }
+
     @FXML
     protected void onRegisterClick() throws IOException {
-        if(!checkLogin()){
+        if (!checkLogin()) {
             return;
-        }else if(!checkEmail()){
+        } else if (!checkEmail()) {
             return;
-        }else if(!checkPass()){
+        } else if (!checkPass()) {
             return;
         }
 
         createFolder();
-        if(checkData(loginField.getText(), 'l')){
+        if (checkData(loginField.getText(), 'l')) {
             problemText.setVisible(true);
             problemText.setText("Login are already taken, try another");
             return;
         }
-        if(checkData(emailField.getText(), 'e')){
+        if (checkData(emailField.getText(), 'e')) {
             problemText.setVisible(true);
             problemText.setText("eMail are already taken, try another");
             return;
@@ -141,5 +145,4 @@ public class RegisterController extends LogRegWorker{
         GridPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Application.fxml")));
         rootGPane.getScene().setRoot(pane);
     }
-
 }
